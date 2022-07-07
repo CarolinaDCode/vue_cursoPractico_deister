@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CDN accounting-->
+    <script src="https://cdn.jsdelivr.net/accounting.js/0.3.2/accounting.js"></script>
+    <!-- CDN moment-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment-with-locales.js"></script>
+    <title>Ejercicio 03</title>
+</head>
+<body>
+    <div id="app">
+        <hr>
+        <center>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Modelo</th>
+                        <th>Compañía</th>
+                        <th>Valor unidad</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="data in stock">
+                        <td>{{data.modelo}}</td>
+                        <td>{{data.compañia}}</td>
+                        <td>{{data.valor | valor}}</td>
+                        <td>{{data.fecha | fecha}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </center>
+    </div>
+     <!-- CDN V2 -->
+     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+     <script>
+         Vue.filter('valor', function(data){
+            return accounting.formatMoney(data, "€", 3, ".", ","); // €4.999,99
+         })
+         Vue.filter('fecha', function(dataFecha){
+            return moment(dataFecha).format('MMMM Do YYYY, h:mm:ss a');  // July 6th 2022, 4:41:12 pm
+         })
+         const app = new Vue({
+             el: '#app',
+             data: {
+                 //array
+                 stock: [
+                     //Object
+                       {modelo: 'iPhone XR', compañia: 'Apple', valor: '450', fecha: '2018-09-12'},
+                       {modelo: 'iPhone 11', compañia: 'Apple', valor: '550', fecha: '2019-08-10'},
+                       {modelo: 'Galaxy A10', compañia: 'Samsung', valor: '350', fecha: '2019-03-12'},
+                       {modelo: 'Galaxy A50', compañia: 'Samsung', valor: '850', fecha: '2018-02-15'},
+                       {modelo: 'Galaxy A20', compañia: 'Samsung', valor: '750', fecha: '2019-08-23'}
+
+                 ]
+             }
+         })
+     </script>
+</body>
+</html>

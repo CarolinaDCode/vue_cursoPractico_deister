@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    <div id="app">
+        <!--
+        el primer argumento del v-for, SERA UN VALOR
+        el segundo el indice, pero si le colocas el nombre de cualquier otro 2do array 
+                              lo tomará como VALOR
+                SOLO ACEPTA 2 ARGUMENTOS
+                por lo tanto, SOLO SE ACEPTARA 2 ARRAYs como máximo
+          -->
+        <li v-for='(framework, i) in frameworks'>
+            El Framework {{framework}} fue creado por {{creador[i]}}
+        </li>
+        <hr>
+        <li v-for='(framework, nombre) in datos'>
+            El Framework {{framework}} fue creado por {{nombre}}
+        </li>
+        <hr>
+        <!--
+        En caso de recorrer objetos
+        1er argumento -> value -> VALOR
+        2do argumento -> key -> KEY
+        -->
+        <li v-for='(value_creator, key_framework ) in datos'>
+            El Framework {{key_framework}} fue creado por {{value_creator}}
+        </li>
+    </div>
+        <!-- 
+            CDN V2
+            v-for 2 array
+            Angular -> Misko Hevery
+            Vue     -> Evan You
+            React   -> Jordan Walke
+            Ember   -> Yehuda Katz
+         -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                frameworks: [
+                    'Angular', 'Vue', 'React', 'Ember'
+                ],
+                creador: [
+                    'Misko Hevery', 'Evan You', 'Jordan Walke', 'Yehuda Katz'
+                ],
+                // num: [
+                //     'one', 'two', 'three', 'four'
+                // ]
+                datos: {
+                    Angular: 'Misko Hevery',
+                    Vue: 'Evan You',
+                    React: 'Jordan Walke',
+                    Ember: 'Yehuda Katz'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

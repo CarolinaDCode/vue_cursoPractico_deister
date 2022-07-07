@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directiva v-Show</title>
+</head>
+<body>
+    <!-- v-show es un condicional 
+        que muestra u oculta algo en html
+        esto dependiendo de un valor booleano
+        true -> muestra,
+        false -> oculta
+    -->
+    <!-- CALCULADORA de notas
+        | 3.0 > A - 3.0 < F |
+     -->
+    <div id="app">
+        <input type="number" v-model="nota">
+        <!-- A true -->
+        <p v-show="resultado()">Pasaste el examen</p>
+        <!-- A False -->
+        <p v-show="!resultado()">NO pasaste el examen</p>
+    </div>
+    <!-- CDN V2 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data:{
+                nota: 0
+            },
+            methods:{
+                resultado(){
+                    if (this.nota >= 3.0 & this.nota <= 5.0) {
+                        return true
+                    } else {
+                        return false
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

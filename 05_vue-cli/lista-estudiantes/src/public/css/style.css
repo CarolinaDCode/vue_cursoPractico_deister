@@ -1,0 +1,19 @@
+body{
+    background: rgb(250, 215, 255) !important;
+}
+
+h2{
+    color: rgb(99, 12, 117) !important;
+}
+
+p{
+    color: rgb(30, 112, 179);
+    font-size: small;
+    font-family: Verdana, Geneva, Tahoma, sanserif;
+}
+label{
+    color: rgb(94, 58, 83) !important;
+    padding: 10px;
+    font-size: larger;
+    font-family: serif;
+}

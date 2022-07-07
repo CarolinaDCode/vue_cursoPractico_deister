@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data</title>
+</head>
+<body>
+        <!--
+        Acceso a Componentes y Elementos
+        document.querySelector("$$$") -> Js
+        $ref -> vue.js
+
+        Atributo ref de Vue:
+        ref el cual lo ayuda a interactuar y acceder especificamente
+        a los componentes que estan dentro de un elemento
+        -->
+        <div id="app">
+            <!-- Colores -->
+            <center>
+                <button @click="cambiarColor()">Colors</button>
+                <hr>
+                <div ref="cont">------</div>
+                <div ref="cont2">------</div>
+            </center>
+        </div>
+        <!-- CDN V2 -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script>
+            const app = new Vue({
+                el: '#app',
+                data:{
+                    numero: 0
+                },
+                methods: {
+                    cambiarColor(){
+                        if(this.numero == 0){
+                            this.numero ++
+                            return this.$refs.cont.style.background = "orange"
+                        }else if (this.numero == 1){
+                            this.numero ++
+                            return this.$refs.cont.style.background = "silver"
+                        }else if (this.numero == 2){
+                            this.numero = 0
+                            return this.$refs.cont.style.background = "pink"
+                        }
+                    }
+                }
+            })
+        </script>
+</body>
+</html>

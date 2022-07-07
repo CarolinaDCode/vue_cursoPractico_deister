@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificador</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{contador}}</p>
+        <button v-on:mouseover = " contador +=1">sumar</button>
+        <button v-on:click.stop= " saludar('diana')">saludar</button>
+        <button v-on:click.once= " saludar()">saludar</button>
+       <!-- <button v-on:click.stop = "contador +=1">sumar</button> -->
+    </div>
+    <!-- 
+        .once -> el evento se ejecuta SOLO UNA VEZ
+        .stop -> el evento se ejecuta UNICAMENTE EN UN COMPONENTE
+     -->
+    <!--MODIFICADORES DE EVENTOS -->
+    <!--ARGUMENTOS EN FUNCIONES -->
+    <!--CDN V2 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data:{
+                contador: 0
+            },
+            methods:{
+                saludar(nombre){
+                    console.log('Hola mundo', nombre);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

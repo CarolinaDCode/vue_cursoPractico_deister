@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue V3</title>
+</head>
+<body>
+    <div id="container">
+        Contador : {{count}}
+    </div>
+    <!-- CDN V3 -->
+    <script src="https://unpkg.com/vue@3"></script>
+    <script>
+        /**
+         * En la version 3 de Vue
+         * Se define un objeto, el cual esta dentro de una constante, y dicho objeto
+         * es el que se envia a la instancia de Vue, cuando se crea la instancia, y tambien cuando se
+         * crea dicha instancia se hace referencia al componente (#container), el cual es un div en html
+         */
+        const Count = {
+            data() {
+                return{
+                    count: 0
+                }
+            },
+            mounted(){
+                setInterval(()=>{
+                    this.count++
+                }, 500)
+            }
+        }
+        Vue.createApp(Count).mount('#container')
+    </script>
+</body>
+</html>

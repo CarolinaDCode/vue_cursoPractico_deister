@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiples Instancias</title>
+</head>
+<body>
+    <!-- 
+     permiten crear multiples instancias dentro de un unico archivo js
+         se puede aplicar logica a ambos componente, combinando
+         las propiedades del uno con el otro componente sin afectar
+         el resultado de cada uno
+    -->
+    <div id="app">
+        {{titulo}}
+        <p>Este es el componente 1</p>
+        <input type="text" v-model="nombre">
+        {{nombre}}
+    </div>
+    <hr>
+    <!-- <div id="componente">
+        <input type="text" v-model="text">
+        {{text}}     
+    </div> -->
+    <!-- CDN V2 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        const uno = new Vue({
+            el: '#app',
+            data: {
+                titulo: 'La Mascara de Hierro',
+                nombre: 'Juan Reyes'
+            },
+            //BeforeCreate =  despues de inicializar la instancia, dentro del componente
+            beforeCreate(){
+                alert('Antes de crear componente ' + this.nombre)
+            },
+            //Created = se ejecuta cuando una instancia, evento o propiedad ya se encuentra creada
+            created(){
+                alert('creado componente ' + this.nombre)
+            },
+            //beforeMount = se ejecuta justo anted de añadir al DOM
+            beforeMount(){
+                alert('justo antes de añadir al DOM ' + this.nombre)
+            },
+            //mounted = se ejecuta despues de añadir al DOM
+            mounted(){
+                 alert('despues de añadir al DOM ' + this.nombre)
+            },
+            //beforeUpdate: Se ejecuta cuando el objeto data cambia
+            beforeUpdate(){
+                alert('objeto data cambiará '+ this.nombre)
+            },
+            //updated: se ejecuta despues que el objeto data cambia
+            updated(){
+                alert('objeto data cambió en el DOM '+ this.nombre)
+            }
+
+            //beforeDestroy: se ejecuta justo antes de eliminar la instancia
+            //destroyed: Se ejecuta cuando la instancia, directivas etc se eliminan
+
+        })
+
+        // const dos = new Vue({
+        //     el: '#componente',
+        //     data:{
+        //         text: uno.nombre
+        //     }
+        // })
+    </script>
+</body>
+</html>

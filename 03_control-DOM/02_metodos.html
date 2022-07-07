@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodos V2</title>
+</head>
+    <div id="app">
+        <h3>{{numero1}}</h3>
+        <h3>{{numero2}}</h3>
+        <input type="number" v-model="numero1">
+        <input type="number" v-model="numero2">
+        <hr>
+        <p>SUMA: {{suma()}}</p>
+        <p>RESTA: {{resta()}}</p>
+        <p>MULTIPLICA: {{multiplicacion()}}</p>
+        <p>DIVIDE: {{division()}}</p>
+    </div>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                numero1: 0,
+                numero2: 0
+            },
+            //metodos "methods"
+            //para acceder a la data dentro de vue, usamos this
+            methods:{
+                suma: function(){
+                    return parseInt(this.numero1) + parseInt(this.numero2)
+                    //this.numero1 - (-this.numero2)
+                },
+                resta:function(){
+                    return this.numero1 - this.numero2
+                },
+                multiplicacion:function(){
+                    return this.numero1 * this.numero2
+                },
+                division:function(){
+                    return this.numero1 / this.numero2
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <center>
+            {{titulo}}
+        </center>
+        <p>{{temp}}</p>
+        <input type="text" v-model="nombre">
+        <br>
+        {{nombre}}
+        <hr>
+        <contador></contador><br>
+        <contador></contador><br>
+        <contador></contador>
+    </div>
+    <!-- Component - template -->
+    <!-- 
+
+    -los componentes pueden ser reutilizables y se pueden utilizar
+    dentro de cualquier instancia u objeto que estemos utilizando
+    en el mismo.
+    
+    -los templates son secciones de codigo, los cuales se insertan
+    dentro del componente, especificamente dentro de su html.
+
+    -->
+    <!-- CDN V2 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        Vue.component('contador', {
+            template: "<button @click='numero++'>Soy un contador {{numero}}</button>",
+            data(){
+                return{
+                    numero: 0
+                }
+            }
+        })
+
+        const uno = new Vue({
+            el:'#app',
+            data: {
+                titulo: 'La Odisea',
+                nombre: 'Homero',
+                temp: 'Este es el componente 1'
+            }
+        })
+    </script>
+</body>
+</html>

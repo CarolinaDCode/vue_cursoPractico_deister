@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Binding</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{mensaje}}</h1> <!-- Interpolación -->
+        <h1 v-text = "mensaje"></h1> <!-- Directiva text v-text="mensaje" -->
+        <input type = "text" placeholder="Digite el texto" v-model="mensaje">
+        <hr>
+        <!-- :href="url" -> : -> referencia especifica dentro de la data-->
+        <a :href="url" target="blanck">Diana!!!</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        // const data = document.querySelector('input');
+        // const dataModifile = document.querySelector('h1');
+        // data.addEventListener('keyup', function(){
+        //     dataModifile.innerHTML = data.value;
+        // })
+        const app = new Vue({
+            el: '#app',
+            data:{
+                mensaje: 'Hola Diana',
+                url: 'https://www.youtube.com/watch?v=NENmQYNfZxI'
+            }
+        })
+
+    </script>
+</body>
+</html>
