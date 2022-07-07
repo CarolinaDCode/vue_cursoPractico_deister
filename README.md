@@ -22,3 +22,5 @@ una escalabilidad al momento de desarrollar o implementar un proyecto software, 
 * vue-class-component -> por medio del cual se puede utilizar decoradores de typeScript, para una api basada en clases.</br>
 * vue-rx -> integración de RxJS </br>
 * vue-devtools -> es una extension del navegador DevTools </br>
+
+<img src="https://i.postimg.cc/VLC2nbt2/cuadro.png"  height="450" width="600" ></img>
